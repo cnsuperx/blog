@@ -193,7 +193,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2025-07-07 11:46:31 / Modified: 12:16:47" itemprop="dateCreated datePublished" datetime="2025-07-07T11:46:31+08:00">2025-07-07</time>
+      <time title="Created: 2025-07-07 11:46:31 / Modified: 13:40:42" itemprop="dateCreated datePublished" datetime="2025-07-07T11:46:31+08:00">2025-07-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,7 +256,11 @@
 </ul>
 </li>
 </ol>
+<h3 id="报错解决"><a href="#报错解决" class="headerlink" title="报错解决"></a>报错解决</h3><p><img src="/blog/./boost2.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">error: msvc initialization: parameter &#x27;version&#x27; inconsistent</span><br><span class="line">error: no value was specified in earlier initialization</span><br><span class="line">error: an explicit value is specified now</span><br></pre></td></tr></table></figure>
 
+<p>修改 ${boost_root} 目录下的 project-config.jam 文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">import option ; </span><br><span class="line"> </span><br><span class="line">using msvc : 14.3 : &quot;D:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.43.34808\bin\Hostx64\x64&quot;; </span><br><span class="line"> </span><br><span class="line">option.set keep-going : false ; </span><br></pre></td></tr></table></figure>
       
     </div>
 
