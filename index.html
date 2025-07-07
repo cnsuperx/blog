@@ -128,16 +128,16 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/blog/archives/">
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
@@ -154,6 +154,125 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2025/07/07/build-boost-md/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/blog/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/blog/2025/07/07/build-boost-md/" class="post-title-link" itemprop="url">build-boost.md</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2025-07-07 11:46:31 / Modified: 12:16:47" itemprop="dateCreated datePublished" datetime="2025-07-07T11:46:31+08:00">2025-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/blog/categories/Boost%E4%BD%BF%E7%94%A8/" itemprop="url" rel="index"><span itemprop="name">Boost使用</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="Windows上使用Visual-Studio2022编译boost库"><a href="#Windows上使用Visual-Studio2022编译boost库" class="headerlink" title="Windows上使用Visual Studio2022编译boost库"></a>Windows上使用Visual Studio2022编译boost库</h3><h4 id="1-安装visual-studio2022"><a href="#1-安装visual-studio2022" class="headerlink" title="1.安装visual studio2022"></a>1.安装visual studio2022</h4><p>visual studio2022的版本对应是<code>msvc-14.3</code>(即v143工具集)</p>
+<h4 id="2-下载boost源码"><a href="#2-下载boost源码" class="headerlink" title="2.下载boost源码"></a>2.下载boost源码</h4><p>下载地址：<a target="_blank" rel="noopener" href="https://www.boost.org/">boost官网：https://www.boost.org/</a></p>
+<h4 id="3-生成构建工具"><a href="#3-生成构建工具" class="headerlink" title="3.生成构建工具"></a>3.生成构建工具</h4><p>使用visual stido2022的<code>Developer Command Prompt for VS 2022</code>工具：</p>
+<p><img src="/blog/./boost1.png"></p>
+<p>构建，生成 b2.exe ：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">D:\boost_1_87_0</span><br><span class="line">bootstrap.bat</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-执行-b2-stage-编译"><a href="#4-执行-b2-stage-编译" class="headerlink" title="4.执行 b2 stage 编译"></a>4.执行 b2 stage 编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">b2 toolset=msvc-14.3 address-model=64 --build-type=complete stage</span><br></pre></td></tr></table></figure>
+<ul>
+<li>参数说明：<ul>
+<li>toolset&#x3D;msvc-14.3：指定 VS2022 编译器</li>
+<li>address-model&#x3D;64：生成 64 位库</li>
+<li>–build-type&#x3D;complete：编译所有变体（Debug&#x2F;Release、静态&#x2F;动态）</li>
+<li>stage：仅生成库文件（.lib 和 .dll），不安装头文件</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-编译结果"><a href="#5-编译结果" class="headerlink" title="5.编译结果"></a>5.编译结果</h4><ol>
+<li>临时文件（编译中间产物）​<ul>
+<li>路径​​：Boost源码目录\bin.v2</li>
+</ul>
+</li>
+<li>最终生成的库文件<ul>
+<li>Boost源码目录\stage\lib</li>
+</ul>
+</li>
+<li>头文件<ul>
+<li>Boost源码目录\include\boost-&lt;版本&gt;</li>
+</ul>
+</li>
+</ol>
+<h4 id="6-在-VS2022-中配置-Boost​"><a href="#6-在-VS2022-中配置-Boost​" class="headerlink" title="6. 在 VS2022 中配置 Boost​"></a>6. 在 VS2022 中配置 Boost​</h4><ol>
+<li>​​添加包含目录​<ul>
+<li>右键项目 → 属性 → ​​C&#x2F;C++ → 常规 → 附加包含目录​​ → 添加 Boost 根目录：D:\boost_1_87_0</li>
+</ul>
+</li>
+<li>添加库目录<ul>
+<li>右键项目 → 属性 → ​​链接器 → 常规 → 附加库目录​​ → 添加：D:\boost_1_87_0\stage\lib</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
